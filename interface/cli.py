@@ -1,6 +1,7 @@
 from models.book import Book
 from models.library import Library
 from services import manager, storage
+from exceptions.errors import BookNotFoundError, BookAlreadyBorrowedError
 
 FILEPATH = "data/data.json"
 
@@ -28,17 +29,21 @@ def run_cli():
 
         elif choice == "2":
             isbn = input("Enter ISBN to borrow: ")
-            if manager.borrow_book(isbn, library):
+            try:
+                manager.borrow_book(isbn, library)
                 print("Book borrowed!")
-            else:
-                print("Not available or not found.")
+            except BookNotFoundError as e:
+                print(f"⚠️ {e}")
+            except BookAlreadyBorrowedError as e:
+                print(f"⚠️ {e}")
 
         elif choice == "3":
             isbn = input("Enter ISBN to return: ")
-            if manager.return_book(isbn, library):
-                print("Book returned.")
-            else:
-                print("Book not found.")
+            try:
+                if manager.return_book(isbn, library):
+                    print("Book returned.")
+            except BookNotFoundError as e:
+                print(f"⚠️ {e}")
 
         elif choice == "4":
             isbn = input("Enter ISBN to remove: ")
@@ -50,12 +55,19 @@ def run_cli():
         elif choice == "5":
             keyword = input("Enter title or author keyword: ")
             results = manager.search_books(keyword, library)
-            for b in results:
-                print(b)
+            if results:
+                for b in results:
+                    print(b)
+            else:
+                print("No results found.")
 
         elif choice == "6":
-            for book in library.get_all_books():
-                print(book)
+            all_books = library.get_all_books()
+            if all_books:
+                for book in all_books:
+                    print(book)
+            else:
+                print("Library is currently empty.")
 
         elif choice == "7":
             storage.save_books(FILEPATH, library.books)

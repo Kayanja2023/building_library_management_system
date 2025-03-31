@@ -1,3 +1,4 @@
+from exceptions.errors import BookNotFoundError, BookAlreadyBorrowedError
 from models.book import Book
 
 def add_book(book, library):
@@ -5,10 +6,12 @@ def add_book(book, library):
 
 def borrow_book(isbn, library):
     book = library.find_book(isbn)
-    if book and book.available:
-        book.available = False
-        return True
-    return False
+    if not book:
+        raise BookNotFoundError(isbn)
+    if not book.available:
+        raise BookAlreadyBorrowedError(book.title)
+    book.available = False
+    return True
 
 def return_book(isbn, library):
     book = library.find_book(isbn)
