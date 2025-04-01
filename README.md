@@ -1,71 +1,117 @@
-# RaD-GP-C25-P-G1: Library Management System
-> **Python - Building a Library Management System using Python and Object-Oriented Programming**  
 
----
+# [RaD-GP-C25-P-G1] Python - Building a Library Management System using Python and Object-Oriented Programming
 
 ## Overview
 
-This project is a **command-line-based Library Management System** developed as part of a coursework assignment to assess practical knowledge in:
-- Python programming
-- Object-Oriented Design (OOD)
-- Modular architecture
-- Testing and code quality best practices
-
-The system allows users to manage a library's book collection, including borrowing and returning functionality, while applying key software engineering principles like encapsulation, separation of concerns, and exception handling.
+This is a command-line-based **Library Management System** developed in **Python 3.12**. Built over the course of **4 weeks** as part of an academic coursework project, this system simulates a digital library environment with functionality to **add, search, borrow, return, and remove books**. It serves as a practical application of object-oriented programming (OOP), modular software architecture, and test-driven development.
 
 ---
 
-##  Project Goals
+## Project Features
 
-- Demonstrate the use of Python classes for modeling real-world entities (`Book`, `Author`, `Library`)
-- Implement a fully functional library system using Object-Oriented Programming
-- Adhere to industry practices including modular design, PEP 8, exception handling, and test coverage
-
----
-
-##  Features Implemented
-
-- Add, remove, borrow, return, and list books
-- Search books by title or author
-- Relationships: Authors can have multiple books, a library manages many books
-- Unit tests with structured coverage (~80–90%)
-- JSON-based persistent storage
--  Simple and interactive CLI menu
+- Add new books with title, author, and ISBN
+- Borrow and return books (updates availability)
+- Remove books by ISBN
+- Search books by title or author keyword
+- View all books in the library
+- Persistent storage using JSON
+- Custom error handling (e.g., `BookNotFoundError`)
+- Unit testing with `unittest` framework
 
 ---
 
-## Technologies & Resources
+## Class Design
 
-- Python 3.12+
-- `unittest` for testing
-- JSON for file persistence
+| Class   | Description |
+|---------|-------------|
+| `Book`  | Represents a book entity with title, author, ISBN, and availability status. |
+| `Author` | Represents an author and their list of books. |
+| `Library` | Manages a collection of books and supports search/remove/find operations. |
 
-### Learning Materials:
-- [Python Full Course – YouTube](https://youtu.be/ix9cRaBkVe0?si=lU2X6nRVVqqKMN6-)
 
----
 
-## Project Structure
 
-```bash
+
+## File Structure
+
+```python
 library_management_system/
-├── main.py                  # Application entry point
-├── models/                  # Core class definitions
+├── main.py                  # Entry point
+├── models/                  # Book, Author, Library class definitions
 │   ├── book.py
 │   ├── author.py
 │   └── library.py
-├── services/                # Business logic and storage
-│   ├── manager.py
-│   └── storage.py
-├── ui/                      # CLI interface
-│   └── cli.py
-├── exceptions/              # Custom exception classes
-│   └── errors.py
+├── services/                # Business logic
+│   ├── manager.py           # Core operations (add, borrow, return)
+│   └── storage.py           # JSON-based data persistence
+├── interface/
+│   └── cli.py               # Command-line interface
+├── exceptions/
+│   └── errors.py            # Custom exceptions
+├── data/
+│   └── data.json            # Persistent data file
 ├── tests/                   # Unit tests
-│   ├── test_book.py
 │   ├── test_author.py
+│   ├── test_book.py
 │   ├── test_library.py
 │   └── test_manager.py
-├── data/
-│   └── data.json            # JSON file for persistence
-└── README.md
+```
+
+---
+
+## How to Run
+
+1. Ensure Python 3.12+ is installed.
+2. Open a terminal and navigate to the root project folder.
+3. Run the application:
+
+```bash
+python main.py
+```
+
+4. Follow the numbered menu to interact with the library system.
+
+---
+
+## Running Unit Tests
+
+Unit tests are written using Python’s built-in `unittest` module.
+
+To run all tests:
+
+```bash
+python -m unittest discover tests
+```
+
+For test coverage (optional):
+
+```bash
+coverage run -m unittest discover tests
+coverage report
+```
+
+---
+
+## Code Quality
+
+- Follows **PEP 8** coding standards
+- Uses **modular architecture** and the **Single Responsibility Principle**
+- All files are organized with `__init__.py` to support import cleanliness
+- Inline comments and docstrings used to improve maintainability
+
+---
+
+## Error Handling
+
+Custom exceptions used to gracefully handle business logic failures:
+
+- `BookNotFoundError` — raised when a book cannot be located by ISBN
+- `BookAlreadyBorrowedError` — raised when a book is unavailable
+
+Handled in the CLI with meaningful, user-friendly messages.
+
+---
+
+
+
+
