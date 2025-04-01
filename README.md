@@ -34,7 +34,7 @@ This is a command-line-based **Library Management System** developed in **Python
 
 ## File Structure
 
-```python
+```bash
 library_management_system/
 ├── main.py                  # Entry point
 ├── models/                  # Book, Author, Library class definitions
@@ -111,7 +111,7 @@ Custom exceptions used to gracefully handle business logic failures:
 Handled in the CLI with meaningful, user-friendly messages.
 
 ---
-
-
+# Coverage Report
+![img.png](img.png)
 
 
