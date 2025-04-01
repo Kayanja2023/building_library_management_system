@@ -12,3 +12,5 @@ class BookAlreadyBorrowedError(Exception):
         message = f"The book '{title}' is already borrowed." if title else "The book is already borrowed."
         super().__init__(message)
         self.title = title
+
+

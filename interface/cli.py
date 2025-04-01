@@ -33,9 +33,9 @@ def run_cli():
                 manager.borrow_book(isbn, library)
                 print("Book borrowed!")
             except BookNotFoundError as e:
-                print(f"⚠️ {e}")
+                print(f" {e}")
             except BookAlreadyBorrowedError as e:
-                print(f"⚠️ {e}")
+                print(f" {e}")
 
         elif choice == "3":
             isbn = input("Enter ISBN to return: ")
@@ -43,7 +43,7 @@ def run_cli():
                 if manager.return_book(isbn, library):
                     print("Book returned.")
             except BookNotFoundError as e:
-                print(f"⚠️ {e}")
+                print(f" {e}")
 
         elif choice == "4":
             isbn = input("Enter ISBN to remove: ")
