@@ -34,7 +34,7 @@ This is a command-line-based **Library Management System** developed in **Python
 
 ## File Structure
 
-```python
+```bash
 library_management_system/
 ├── main.py                  # Entry point
 ├── models/                  # Book, Author, Library class definitions
