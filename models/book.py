@@ -1,7 +1,12 @@
+from utils.validations import validate_isbn, validate_non_empty
 
 
 class Book:
     def __init__(self, title, author, isbn, available=True):
+        validate_non_empty(title, "Title")
+        validate_non_empty(author, "Author")
+        validate_isbn(isbn)
+
         self.title = title
         self.author = author
         self.isbn = isbn

@@ -1,18 +1,20 @@
+
 import unittest
 from models.author import Author
 from models.book import Book
 
-
 class TestAuthor(unittest.TestCase):
     def setUp(self):
-        """Initialize common test objects."""
+        #Initialize reusable Author and Book objects for tests.
         self.author = Author("Jane Doe")
-        self.book1 = Book("AI for Beginners", "Jane Doe", "001")
-        self.book2 = Book("Deep Learning 101", "Jane Doe", "002")
-        self.book_wrong_author = Book("Not Her Book", "John Smith", "999")
+        self.book1 = Book("AI for Beginners", "Jane Doe", "1234567890123")      # Valid ISBN-13
+        self.book2 = Book("Advanced AI", "Jane Doe", "9876543210987")           # Valid ISBN-13
+        self.book_wrong_author = Book("Not Her Book", "John Smith", "1111111111111")  # Valid but wrong author
+
+
 
     def test_author_initialization(self):
-        """Test that an author is initialized with the correct name and empty book list."""
+        #Test that an author is initialized with the correct name and empty book list.
         self.assertEqual(self.author.name, "Jane Doe")
         self.assertEqual(len(self.author.books), 0)
 

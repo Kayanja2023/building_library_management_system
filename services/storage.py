@@ -1,15 +1,27 @@
+import os
 import json
+
+
 from models.book import Book
 
 def load_books(filepath):
-    try:
-        with open(filepath, 'r') as f:
-            content = f.read().strip()
-            if not content:
-                return []
-            return [Book.from_dict(entry) for entry in json.loads(content)]
-    except (FileNotFoundError, json.JSONDecodeError):
+
+    if not os.path.exists(filepath):
         return []
+
+    with open(filepath, "r") as f:
+        content = f.read()
+        if not content.strip():
+            return []
+
+        try:
+            data = json.loads(content)
+            return [Book.from_dict(entry) for entry in data]
+        except json.JSONDecodeError:
+            print(f"Warning: Failed to decode JSON from {filepath}")
+            return []
+
+
 
 def save_books(filepath, books):
     with open(filepath, 'w') as f:

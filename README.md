@@ -35,26 +35,42 @@ This is a command-line-based **Library Management System** developed in **Python
 ## File Structure
 
 ```bash
-library_management_system/
-├── main.py                  # Entry point
-├── models/                  # Book, Author, Library class definitions
-│   ├── book.py
-│   ├── author.py
-│   └── library.py
-├── services/                # Business logic
-│   ├── manager.py           # Core operations (add, borrow, return)
-│   └── storage.py           # JSON-based data persistence
-├── interface/
-│   └── cli.py               # Command-line interface
-├── exceptions/
-│   └── errors.py            # Custom exceptions
+rad-gp-c25-p-g1/
+├── .idea/
 ├── data/
-│   └── data.json            # Persistent data file
-├── tests/                   # Unit tests
+│   └── data.json
+├── exceptions/
+│   ├── __init__.py
+│   └── errors.py
+├── interface/
+│   ├── __init__.py
+│   └── cli.py
+├── utils/
+│   ├── __init__.py
+│   └── valildations.py
+├── models/
+│   ├── __init__.py
+│   ├── author.py
+│   ├── book.py
+│   └── library.py
+├── services/
+│   ├── __init__.py
+│   ├── manager.py
+│   └── storage.py
+├── tests/
+│   ├── __init__.py
 │   ├── test_author.py
 │   ├── test_book.py
 │   ├── test_library.py
-│   └── test_manager.py
+│   ├── test_manager.py
+│   └── images/
+│       └── Coverage_Report.png
+├── main.py
+└── README.md
+
+
+
+
 ```
 
 ---
@@ -111,7 +127,7 @@ Custom exceptions used to gracefully handle business logic failures:
 Handled in the CLI with meaningful, user-friendly messages.
 
 ---
-# Coverage Report
-![img.png](img.png)
+## Coverage Report
+![img.png](tests/images/Coverage_Report.png)
 
 

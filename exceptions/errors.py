@@ -7,10 +7,15 @@ class BookNotFoundError(Exception):
 
 
 class BookAlreadyBorrowedError(Exception):
-    """Raised when attempting to borrow a book that is already borrowed."""
+    #Raised when attempting to borrow a book that is already borrowed.
     def __init__(self, title=None):
         message = f"The book '{title}' is already borrowed." if title else "The book is already borrowed."
         super().__init__(message)
         self.title = title
 
+
+
+class InvalidISBNError(Exception):
+    #Raised when the ISBN is not numeric or of incorrect length.
+    pass
 
