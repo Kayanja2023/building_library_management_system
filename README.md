@@ -3,7 +3,7 @@
 
 ## Overview
 
-This is a command-line-based **Library Management System** developed in **Python 3.12**. Built over the course of **4 weeks** as part of an academic coursework project, this system simulates a digital library environment with functionality to **add, search, borrow, return, and remove books**. It serves as a practical application of object-oriented programming (OOP), modular software architecture, and test-driven development.
+This is a command-line-based **Library Management System** developed in **Python 3.12**. Built over the course of **4 weeks** as part of Clickatell's Graduate R&D coursework project, this system simulates a digital library environment with functionality to **add, search, borrow, return, and remove books**. It serves as a practical application of object-oriented programming (OOP), modular software architecture, and test-driven development.
 
 ---
 
