@@ -22,11 +22,19 @@ This is a command-line-based **Library Management System** developed in **Python
 
 ## Class Design
 
-| Class   | Description |
-|---------|-------------|
-| `Book`  | Represents a book entity with title, author, ISBN, and availability status. |
-| `Author` | Represents an author and their list of books. |
-| `Library` | Manages a collection of books and supports search/remove/find operations. |
+| **Class Name**              | **Responsibility / Description**                                                                                                                                      |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Book`                     | Represents a book entity with `title`, `author`, `ISBN`, and `availability` status. Supports serialization to/from JSON via `to_dict()` and `from_dict()`.          |
+| `Author`                   | Represents an author with a `name` and a list of their `books`. Provides a method to `add_book()` and a readable string format.                                       |
+| `Library`                  | Manages a collection of books. Supports operations to `add`, `find`, and `list` all books. Acts as an in-memory database.                                             |
+| `manager` (module)         | Contains business logic for library operations: `add_book`, `borrow_book`, `return_book`, `search_books`, and `remove_book`. Enforces rules and raises exceptions.   |
+| `storage` (module)         | Handles loading and saving books to a JSON file. Abstracts away persistence logic using `load_books()` and `save_books()`.                                            |
+| `cli` (module)             | Provides a command-line interface for interacting with the library. Displays a menu, handles user input, and calls manager functions.                                |
+| `BookNotFoundError`        | Custom exception raised when an ISBN does not match any book in the library.                                                                                          |
+| `BookAlreadyBorrowedError` | Raised when attempting to borrow a book that is already checked out.                                                                                                   |
+| `InvalidISBNError`         | Raised when the ISBN format does not meet validation criteria (13 or 15 digits, numeric only).                                                                         |
+| `validations` (utils)      | Utility module for input validation, e.g. checking non-empty strings and valid ISBN format. Promotes code reuse and clean error handling.                              |
+
 
 
 
