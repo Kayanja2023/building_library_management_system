@@ -123,6 +123,7 @@ Custom exceptions used to gracefully handle business logic failures:
 
 - `BookNotFoundError` — raised when a book cannot be located by ISBN
 - `BookAlreadyBorrowedError` — raised when a book is unavailable
+- `InvalidISBNError` - raised when the ISBN number is incorrectly formatted
 
 Handled in the CLI with meaningful, user-friendly messages.
 

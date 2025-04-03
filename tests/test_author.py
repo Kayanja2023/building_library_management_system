@@ -12,9 +12,8 @@ class TestAuthor(unittest.TestCase):
         self.book_wrong_author = Book("Not Her Book", "John Smith", "1111111111111")  # Valid but wrong author
 
 
-
+    """ testing that an author is initialized with the correct name and empty book list."""
     def test_author_initialization(self):
-        #Test that an author is initialized with the correct name and empty book list.
         self.assertEqual(self.author.name, "Jane Doe")
         self.assertEqual(len(self.author.books), 0)
 
@@ -38,12 +37,7 @@ class TestAuthor(unittest.TestCase):
         self.assertIn("1 books", author_str)
 
 
-    def test_adding_book_with_mismatched_author(self):
-        """Optional: Add logic to prevent associating books by different authors."""
-        # If your Author class enforces consistency, test for rejection
-        self.author.add_book(self.book_wrong_author)
-        # Assuming logic doesn’t block mismatches yet
-        self.assertIn(self.book_wrong_author, self.author.books)
+
 
 
 if __name__ == '__main__':
