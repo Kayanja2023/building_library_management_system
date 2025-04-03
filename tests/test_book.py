@@ -67,19 +67,31 @@ class TestBook(unittest.TestCase):
             Book("Bad Format", "Author", "12345abc90123")  # not all digits
 
     def test_valid_13_digit_isbn_passes(self):
-        """Test that a valid 13-digit ISBN does not raise an error."""
+        """
+        Ensure a valid 13-digit numeric ISBN is accepted
+        and does not raise an InvalidISBNError.
+        """
         try:
+            # try creating a valid book with 13-digit ISBN
             book = Book("Valid Book", "Author", "1111111111111")
             self.assertEqual(book.isbn, "1111111111111")
+
         except InvalidISBNError:
+            # if the validation fails here, the test should fail — this ISBN is valid.
             self.fail("Valid 13-digit ISBN incorrectly raised InvalidISBNError.")
 
     def test_valid_15_digit_isbn_passes(self):
-        """Test that a valid 15-digit ISBN does not raise an error."""
+        """
+        ensuring a valid 15-digit numeric ISBN is accepted
+        and does not raise an InvalidISBNError.
+        """
         try:
+            # try creating a valid book with 15-digit ISBN
             book = Book("Valid Book", "Author", "123456789012345")
             self.assertEqual(book.isbn, "123456789012345")
+
         except InvalidISBNError:
+            # raise failure if an error is thrown for a valid ISBN.
             self.fail("Valid 15-digit ISBN incorrectly raised InvalidISBNError.")
 
 
