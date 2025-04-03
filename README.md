@@ -1,6 +1,9 @@
 
 # [RaD-GP-C25-P-G1] Python - Building a Library Management System using Python and Object-Oriented Programming
 
+## Requirements
+The Library Management System project requires the development of a command-line application in Python using object-oriented principles such as **encapsulation** and **modularity**. The system must support core library operations including **adding, removing, borrowing, returning, and searching for books**. Classes like Book, Author, and Library should be implemented with proper relationships and validation. The codebase must follow the **Single Responsibility Principle** and be organized into logical modules. A **user-friendly CLI** should facilitate interaction, and robust error handling must be included using custom exceptions. The application must also include unit tests using Python’s unittest framework. The final deliverable should include clean, well-documented code and a README file, all submitted to GitLab.
+
 ## Overview
 
 This is a command-line-based **Library Management System** developed in **Python 3.12**. Built over the course of **4 weeks** as part of Clickatell's Graduate R&D coursework project, this system simulates a digital library environment with functionality to **add, search, borrow, return, and remove books**. It serves as a practical application of object-oriented programming (OOP), modular software architecture, and test-driven development.
