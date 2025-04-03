@@ -1,14 +1,14 @@
 [
   {
-    "title": "Dairy of a wimpy kid",
-    "author": "J.K Rowling",
-    "isbn": "123123123123123",
-    "available": false
-  },
-  {
     "title": "Clean Code",
     "author": "Robert C. Martin",
     "isbn": "1234567890123",
+    "available": true
+  },
+  {
+    "title": "Head First",
+    "author": "G.H Barnes",
+    "isbn": "123123123123123",
     "available": true
   }
 ]
